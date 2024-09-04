@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+
+import React from 'react';
+import { ThemeProvider } from './ThemeContext';
+import { FormProvider } from './FormContext'; // Importe o FormProvider
+import ThemeSwitcher from './ThemeSwitcher';
+import RegistrationForm from './RegistrationForm';
+import TaskList from './TaskList';
+import Counter from './Counter'; // Importe o Counter
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <FormProvider>
+        <div className="App">
+          <ThemeSwitcher />
+          <RegistrationForm />
+          <TaskList />
+          <Counter /> {/* Adicione o Counter aqui */}
+        </div>
+      </FormProvider>
+    </ThemeProvider>
   );
 }
 
